@@ -28,4 +28,4 @@ jobs:
       - name: Smoke test worksheet generation
         run: |
           python -m mathdrill --ops add,sub,mul,div --count 20 --seed 7 -o smoke.html
-          python -c "print(open('smoke.html', encoding='utf-8').read().count('class=\"item\"'))"
+          python -c "text = open('smoke.html', encoding='utf-8').read(); marker = 'class=' + chr(34) + 'item' + chr(34); assert text.count(marker) == 20; print('ok')"
